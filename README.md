@@ -1,0 +1,4 @@
+Workspace
+=========
+
+Generic workspace
