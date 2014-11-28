@@ -1,17 +1,34 @@
 load sobel
-img1 = read_image('','9343 AM.bmp')
-img2 = read_image('','43590 AM.bmp');
-img3 = read_image('','10905 JL.bmp');
-show_image(img3)
-img1sobel = magnitude((conv2(img1,sobelX)),(conv2(img1,sobelY)))
-img2sobel = magnitude((conv2(img2,sobelX)),(conv2(img2,sobelY)));
-img3sobel = magnitude((conv2(img3,sobelX)),(conv2(img3,sobelY)));
+sgA = [0 0 0; -1 0 1; 0 0 0 ]
+
+sgB = sgA'
+
+
+
+
+img1 = read_image('','9343 AM.bmp');
+img1sobel = magnitude((conv2(img1,sobelX)),(conv2(img1,sobelY)));
 img1robert = magnitude((conv2(img1,robertsA)),(conv2(img1,robertsB)));
-img2robert = magnitude((conv2(img2,robertsA)),(conv2(img2,robertsB)));
-img3robert = magnitude((conv2(img3,robertsA)),(conv2(img3,robertsB)));
-sg = [0 0 0; -1 0 1; 0 0 0 ]
-sgA = sg
-sgB = sg'
+
 img1simple = magnitude((conv2(img1,sgA)),(conv2(img1,sgB)))
+;
+
+
+
+img2 = read_image('','43590 AM.bmp');
+
+img2sobel = magnitude((conv2(img2,sobelX)),(conv2(img2,sobelY)));
+img2robert = magnitude((conv2(img2,robertsA)),(conv2(img2,robertsB)));
+
 img2simple = magnitude((conv2(img2,sgA)),(conv2(img2,sgB)))
+;
+
+
+
+img3 = read_image('','10905 JL.bmp');
+img3sobel = magnitude((conv2(img3,sobelX)),(conv2(img3,sobelY)));
+
+img3robert = magnitude((conv2(img3,robertsA)),(conv2(img3,robertsB)));
+
 img3simple = magnitude((conv2(img3,sgA)),(conv2(img3,sgB)))
+;
