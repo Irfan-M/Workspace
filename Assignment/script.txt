@@ -1,17 +1,33 @@
-load sobel
+load sobel;
+load roberts;
+load filters;
 sgA = [0 0 0; -1 0 1; 0 0 0 ]
+;
+sgB = sgA';
 
-sgB = sgA'
-
+gauss10 = N(0,1,[-3:0.6:3]);
+gauss7 = N(0,0.1,[-3:1:3]);
+threshold = 30;
+filterA = gauss10;
+filterB = gauss10';
 
 
 
 img1 = read_image('','9343 AM.bmp');
+img1filter = conv2(img1,filterA)
+
+
 img1sobel = magnitude((conv2(img1,sobelX)),(conv2(img1,sobelY)));
+
+
 img1robert = magnitude((conv2(img1,robertsA)),(conv2(img1,robertsB)));
 
 img1simple = magnitude((conv2(img1,sgA)),(conv2(img1,sgB)))
 ;
+img1gaussfirst = 
+img1laplacian = 
+img1laplagauss =
+img1Canny = 
 
 
 
@@ -22,6 +38,10 @@ img2robert = magnitude((conv2(img2,robertsA)),(conv2(img2,robertsB)));
 
 img2simple = magnitude((conv2(img2,sgA)),(conv2(img2,sgB)))
 ;
+img2gaussfirst = 
+img2laplacian = 
+img2laplagauss =
+img2Canny = 
 
 
 
@@ -32,3 +52,7 @@ img3robert = magnitude((conv2(img3,robertsA)),(conv2(img3,robertsB)));
 
 img3simple = magnitude((conv2(img3,sgA)),(conv2(img3,sgB)))
 ;
+img3gaussfirst = 
+img3laplacian = 
+img3laplagauss =
+img3Canny = 
