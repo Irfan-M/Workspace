@@ -1,0 +1,119 @@
+Gaussian filter = more advantageous vs mean filter (linear filter)
+Gaussian filter faster using 1d - Bad (NxN x (GxG)) vs  Good (2G x NxN)
+
+
+
+With 1st Derative = get Gradient x, then you Gradient Y, then you get magnitude (x,y)
+
+With Laplacian - WE DONT CARE ABOUT THE magnitude, we care about the zero crossing. - Always have to calculate the zero crossing.
+- Convolve image with laplacian. Then use a function in matlab that is called zero crossing!
+
+Laplacian very bad with images with noise. USE Gaussian First.
+You can convolve laplacian to the gaussian and get a new kernel, which you apply directly to your image.
+
+Steps in Edge Detection:
+1) Smoothing (Without destroying edges - consider size of kernel)
+2) Enchancement (Sharpening edges - calculating gradient)
+3) (With gradient) - Threshold (How to optimise an algorithm to make it as objective as possible)
+4) Localization - make a binary image (to determine edges) 1 or 0 (True or False)
+
+
+Edge detection using derivatives:
+1) Detecting local (maxima || minima) of the first derivate (Sobel, Roberts etc)
+2) Detecting zero crossings of the second derivative (Laplacian)
+
+
+With Gaussian (Smoothing) - we can specify Size aswell as S.D. (standard deviation)
+
+
+Criteria for Optimal Edge Detection
+
+1) Good detection 
+Minimize probability of false positives (spurious edges)
+Minimize false negatives (misisng edges
+
+2) Good localization
+Detected edges must be as close as possible to the true edge
+
+3) Single response
+Minimize th enumber of local maxima around the true edge
+
+Canny edge detector - first derivative of the Guassian.
+1) Apply Gaussian to image, use simple gradient on x and y
+2) Computer gradient magnitude (and dir(x,y) = tan'1(fy/fx)
+3) non-maxima suppression (Take magnitude image and use this).
+4) Hysteris thresholding (uses 2 threshold: low and high[low x2])
+- Choose a high threshold
+
+
+
+Algorithm: For each pixel (i,j) do
+if mag(i,j) < mag(i1,j1)[value above] or mag(i,j) < mag(i2,j2)[value above]
+	then In (i,j) = 0
+else In(i,j) = mag(i,j)
+
+if the pixel value is greater than the value above and below, then it is the edge,
+if not it is not an edge.
+
+
+
+E(x,y) { 1 if 
+
+
+
+
+
+
+
+
+
+Prewitt Operator
+
+-1 0 1
+-1 0 1
+-1 0 1
+Sobel Operator
+
+-1 0 1
+-2 0 2
+-1 0 1
+
+Sobel gives more weight to pixels Left and Right of the given pixel, as they are more valuable.
+
+
+Sobel -
+
+i9343 = read_image(‘’,’9343 AM.gif’)
+i9343sobel = m(conv2(i9343,sobelX),conv2(i9343,sobelY))
+
+i9343mb5 = conv2(i9343,mean5x5) 
+i9343mb3 = conv2(i9343,mean3x3)  
+
+i9343sobelmb5 = m(conv2(i9343mb5,sobelX),conv2(i9343mb5,sobelY))
+i9343sobelmb3 = m(conv2(i9343mb3,sobelX),conv2(i9343mb3,sobelY))
+
+i9343gs5 = conv2(i9343,gaussian5x5) 
+i9343gs3 = conv2(i9343,gaussian3x3)  
+
+i9343sobelgs5 = m(conv2(i9343gs5,sobelX),conv2(i9343gs5,sobelY))
+i9343sobelgs3 = m(conv2(i9343gs3 ,sobelX),conv2(i9343gs3,sobelY))
+
+
+
+
+Roberts
+
+i9343 = read_image(‘’,’9343 AM.gif’)
+i9343rob = m(conv2(i9343,robertsX),conv2(i9343,robertsY))
+
+i9343mb5 = conv2(i9343,mean5x5) 
+i9343mb3 = conv2(i9343,mean3x3)  
+
+i9343robmb5 = m(conv2(i9343mb5,robertsX),conv2(i9343mb5,robertsY))
+i9343robmb3 = m(conv2(i9343mb3,robertsX),conv2(i9343mb3,robertsY))
+
+i9343gs5 = conv2(i9343,gaussian5x5) 
+i9343gs3 = conv2(i9343,gaussian3x3)  
+
+i9343robgs5 = m(conv2(i9343gs5,robertsX),conv2(i9343gs5,robertsY))
+i9343robgs3 = m(conv2(i9343gs3 ,robertsX),conv2(i9343gs3,robertsY))
