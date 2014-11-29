@@ -1,22 +1,19 @@
-function m = edge2MT(image,edgefilterX,edgefilterY,threshold)
+function m = edge2MT(image,edgeY,edgeY,threshold)
 
 % Applies 2 edge filters, 1 threshold, to the image and returns image in B/W
-% blur = smoothing / noise filter e.g. Laplacian (blur)
-% edgefilterX = e.g. SobelX (edge)
-% edgefilterY = e.g. SobelY, robertX (edge)
+% edgeY = e.g. SobelX (edge)
+% edgeY = e.g. SobelY, robertX (edge)
 % Also calculates Magnitude. (M)
 % image threshold (T)
-% NOTE: image shown is image after magnitude calculation, BUT will return image in B/W (binary). 
 
+imFX = conv2(image,edgeY);
+imFY = conv2(image,edgeY);
 
-imFX = conv2(image,edgeFilterX);
-imFY = conv2(image,edgeFilterY);
+m = sqrt(imFX.^2 + imFY.^2);
+m = (m > threshold);
 
-mag = sqrt(imFX.^2 + imFY.^2);
-mag2 = (m > threshold);
+m = im2bw(m,greythresh(m));
 
-m = im2bw(mag2,greythresh(mag2));
-
-show_image(mag);
+show_image(m);
 
 end

@@ -1,0 +1,152 @@
+load sobel;
+load roberts;
+load filters;
+
+gauss3 = N(0,1,[-3:3:3]);
+gauss5 = N(0,1,[-3:1.5:3]);
+gauss7 = N(0,1,[-3:1:3]);
+gauss10 = N(0,1,linspace(-3,3,10));
+
+threshold = 30;
+
+--------------------------------------------------------------------------------------------------------------
+
+img1 = read_image('','9343 AM.bmp');
+
+plots = [];
+[plots (RocID(edge2M(img1,sobelX,sobelY),'9343 AM Edges.bmp'))];
+[plots (RocID(edge2MT(img1,sobelX,sobelY,30),'9343 AM Edges.bmp'))];
+[plots (RocID(edge2MT(img1,sobelX,sobelY,40),'9343 AM Edges.bmp'))];
+[plots (RocID(edge2MT(img1,sobelX,sobelY,50),'9343 AM Edges.bmp'))];
+[plots (RocID(edge2MT(img1,sobelX,sobelY,60),'9343 AM Edges.bmp'))];
+
+plots2 = [];
+[plots2 (RocID(edge2M(img1,sobelX,sobelY),'9343 AM Edges.bmp'))];
+[plots2 (RocID(blur1edge2M(img1,mean3x3,sobelX,sobelY),'9343 AM Edges.bmp'))];
+[plots2 (RocID(blur1edge2M(img1,mean5x5,sobelX,sobelY),'9343 AM Edges.bmp'))];
+
+plots3 = [];
+[plots3 (RocID(edge2M(img1,sobelX,sobelY),'9343 AM Edges.bmp'))];
+[plots3 (RocID(blur1edge2M(img1,gauss3,gauss3',sobelX,sobelY),'9343 AM Edges.bmp'))];
+[plots3 (RocID(blur1edge2M(img1,gauss5,gauss5',sobelX,sobelY),'9343 AM Edges.bmp'))];
+[plots3 (RocID(blur2edge2M(img1,gauss7,gauss7',sobelX,sobelY),'9343 AM Edges.bmp'))];
+[plots3 (RocID(blur2edge2M(img1,gauss10,gauss10',sobelX,sobelY),'9343 AM Edges.bmp'))];
+
+plot([0:0.1:1],[0:0.1:1],plots(1,:),plots(2,:),plots2(1,:),plots2(2,:)plots3(1,:),plots3(2,:))
+-------------------------------------------------------------------------------------------------------------
+
+
+plots4 = [];
+[plots4 (RocID(edge2M(img1,robertsA,robertsB),'9343 AM Edges.bmp'))];
+[plots4 (RocID(edge2MT(img1,robertsA,robertsB,30),'9343 AM Edges.bmp'))];
+[plots4 (RocID(edge2MT(img1,robertsA,robertsB,40),'9343 AM Edges.bmp'))];
+[plots4 (RocID(edge2MT(img1,robertsA,robertsB,50),'9343 AM Edges.bmp'))];
+[plots4 (RocID(edge2MT(img1,robertsA,robertsB,60),'9343 AM Edges.bmp'))];
+
+plots5 = [];
+[plots5 (RocID(edge2M(img1,robertsA,robertsB),'9343 AM Edges.bmp'))];
+[plots5 (RocID(blur1edge2M(img1,mean3x3,robertsA,robertsB),'9343 AM Edges.bmp'))];
+[plots5 (RocID(blur1edge2M(img1,mean5x5,robertsA,robertsB),'9343 AM Edges.bmp'))];
+
+plots6 = [];
+[plots6 (RocID(edge2M(img1,robertsA,robertsB),'9343 AM Edges.bmp'))];
+[plots6 (RocID(blur1edge2M(img1,gauss3,gauss3',robertsA,robertsB),'9343 AM Edges.bmp'))];
+[plots6 (RocID(blur1edge2M(img1,gauss5,gauss5',robertsA,robertsB),'9343 AM Edges.bmp'))];
+[plots6 (RocID(blur2edge2M(img1,gauss7,gauss7',robertsA,robertsB),'9343 AM Edges.bmp'))];
+[plots6 (RocID(blur2edge2M(img1,gauss10,gauss10',robertsA,robertsB),'9343 AM Edges.bmp'))];
+
+plot([0:0.1:1],[0:0.1:1],plots4(1,:),plots4(2,:),plots5(1,:),plots5(2,:)plots6(1,:),plots6(2,:));
+--------------------------------------------------------------------------------------------------------------
+
+plots7 = [];
+[plots7 (RocID(edge2M(img1,difference_gradient_filterX,difference_gradient_filterY),'9343 AM Edges.bmp'))];
+[plots7 (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,30),'9343 AM Edges.bmp'))];
+[plots7 (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,40),'9343 AM Edges.bmp'))];
+[plots7 (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,50),'9343 AM Edges.bmp'))];
+[plots7 (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,60),'9343 AM Edges.bmp'))];
+
+plots8 = [];
+[plots8 (RocID(edge2M(img1,difference_gradient_filterX,difference_gradient_filterY),'9343 AM Edges.bmp'))];
+[plots8 (RocID(blur1edge2M(img1,mean3x3,difference_gradient_filterX,difference_gradient_filterY),'9343 AM Edges.bmp'))];
+[plots8 (RocID(blur1edge2M(img1,mean5x5,difference_gradient_filterX,difference_gradient_filterY),'9343 AM Edges.bmp'))];
+
+plots9 = [];
+[plots9 (RocID(edge2M(img1,difference_gradient_filterX,difference_gradient_filterY),'9343 AM Edges.bmp'))];
+[plots9 (RocID(blur1edge2M(img1,gauss3,gauss3',difference_gradient_filterX,difference_gradient_filterY),'9343 AM Edges.bmp'))];
+[plots9 (RocID(blur1edge2M(img1,gauss5,gauss5',difference_gradient_filterX,difference_gradient_filterY),'9343 AM Edges.bmp'))];
+[plots9 (RocID(blur2edge2M(img1,gauss7,gauss7',difference_gradient_filterX,difference_gradient_filterY),'9343 AM Edges.bmp'))];
+[plots9 (RocID(blur2edge2M(img1,gauss10,gauss10',difference_gradient_filterX,difference_gradient_filterY),'9343 AM Edges.bmp'))];
+
+plot([0:0.1:1],[0:0.1:1],plots7(1,:),plots7(2,:),plots8(1,:),plots8(2,:)plots9(1,:),plots9(2,:));
+--------------------------------------------------------------------------------------------------------------
+
+plotsA = [];
+[plotsA (RocID(customA(image,-1,-1,laplacian,-1,0,-1),'9343 AM Edges.bmp'))];
+[plotsA (RocID(customA(image,-1,-1,laplacian,-1,0,30),'9343 AM Edges.bmp'))];
+[plotsA (RocID(customA(image,-1,-1,laplacian,-1,0,40),'9343 AM Edges.bmp'))];
+[plotsA (RocID(customA(image,-1,-1,laplacian,-1,0,50),'9343 AM Edges.bmp'))];
+[plotsA (RocID(customA(image,-1,-1,laplacian,-1,0,60),'9343 AM Edges.bmp'))];
+
+
+plotsB = [];
+[plotsB (RocID(customA(image,-1,-1,laplacian,-1,0,-1),'9343 AM Edges.bmp'))];
+[plotsB (RocID(customA(image,mean3x3,-1,laplacian,-1,0,-1),'9343 AM Edges.bmp'))];
+[plotsB (RocID(customA(image,mean5x5,-1,laplacian,-1,0,-1),'9343 AM Edges.bmp'))];
+[plotsB (RocID(customA(image,mean3x3,-1,laplacian,-1,0,-1),'9343 AM Edges.bmp'))];
+
+plotsC = [];
+[plotsC (RocID(customA(image,-1,-1,laplacian,-1,0,-1),'9343 AM Edges.bmp'))];
+[plotsC (RocID(customA(image,gauss3,gauss3',laplacian,-1,0,-1),'9343 AM Edges.bmp'))];
+[plotsC (RocID(customA(image,gauss5,gauss5',laplacian,-1,0,-1),'9343 AM Edges.bmp'))];
+[plotsC (RocID(customA(image,gauss7,gauss7',laplacian,-1,0,-1),'9343 AM Edges.bmp'))];
+[plotsC (RocID(customA(image,gauss10,gauss10',laplacian,-1,0,-1),'9343 AM Edges.bmp'))];
+
+plot([0:0.1:1],[0:0.1:1],plotsA(1,:),plotsA(2,:),plotsB(1,:),plotsB(2,:)plotsC(1,:),plotsC(2,:));
+
+--------------------------------------------------------------------------------------------------------------
+
+plotsD = [];
+[plotsD (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),'9343 AM Edges.bmp'))];
+[plotsD (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,30),'9343 AM Edges.bmp'))];
+[plotsD (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,40),'9343 AM Edges.bmp'))];
+[plotsD (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,50),'9343 AM Edges.bmp'))];
+[plotsD (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,60),'9343 AM Edges.bmp'))];
+
+plotsE = [];
+[plotsE (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),'9343 AM Edges.bmp'))];
+[plotsE (RocID(customA(image,mean3x3,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),'9343 AM Edges.bmp'))];
+[plotsE (RocID(customA(image,mean5x5,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),'9343 AM Edges.bmp'))];
+[plotsE (RocID(customA(image,mean3x3,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),'9343 AM Edges.bmp'))];
+
+plotsF = []
+[plotsF (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),'9343 AM Edges.bmp'))];
+[plotsF (RocID(customA(image,gauss3,gauss3',first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),'9343 AM Edges.bmp'))];
+[plotsF (RocID(customA(image,gauss5,gauss5',first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),'9343 AM Edges.bmp'))];
+[plotsF (RocID(customA(image,gauss7,gauss7',first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),'9343 AM Edges.bmp'))];
+[plotsF (RocID(customA(image,gauss10,gauss10',first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),'9343 AM Edges.bmp'))];
+
+plot([0:0.1:1],[0:0.1:1],plotsD(1,:),plotsD(2,:),plotsE(1,:),plotsE(2,:)plotsF(1,:),plotsF(2,:));
+---------------------------------------------------------------------------------------------------------
+
+plotsG = [];
+[plotsG (RocID(edge(img1,'canny'),'9343 AM Edges.bmp'))];
+[plotsG (RocID(edge(img1,'canny',30),'9343 AM Edges.bmp'))];
+[plotsG (RocID(edge(img1,'canny',40),'9343 AM Edges.bmp'))];
+[plotsG (RocID(edge(img1,'canny',50),'9343 AM Edges.bmp'))];
+[plotsG (RocID(edge(img1,'canny',60),'9343 AM Edges.bmp'))];
+
+plotsH = [];
+[plotsH (RocID(edge(img1,'canny'),'9343 AM Edges.bmp'))];
+[plotsH (RocID(edge(img1,'canny',,1),'9343 AM Edges.bmp'))];
+[plotsH (RocID(edge(img1,'canny',,2),'9343 AM Edges.bmp'))];
+[plotsH (RocID(edge(img1,'canny',,3),'9343 AM Edges.bmp'))];
+
+plotsI = [];
+[plotsI (RocID(edge(img1,'canny'),'9343 AM Edges.bmp'))];
+[plotsI (RocID(edge(img1,'canny',30,1),'9343 AM Edges.bmp'))];
+[plotsI (RocID(edge(img1,'canny',40,2),'9343 AM Edges.bmp'))];
+[plotsI (RocID(edge(img1,'canny',50,3),'9343 AM Edges.bmp'))];
+[plotsI (RocID(edge(img1,'canny',60,4),'9343 AM Edges.bmp'))];
+
+plot([0:0.1:1],[0:0.1:1],plotsH(1,:),plotsH(2,:),plotsI(1,:),plotsI(2,:)plotsJ(1,:),plotsJ(2,:));
+---------------------------------------------------------------------------------------------------------
