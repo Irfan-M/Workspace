@@ -34,6 +34,16 @@ img1gausslapla10T = blur1edge1(img1,gauss10'*gauss10,laplacian);
 img1CannyT = 
 
 
+img1sobelTg10 = blur2edge2MT(img1,gauss10,gauss10,sobelX,sobelY,threshold);
+img1robertTg10 = blur2edge2MT(img1,gauss10,gauss10,robertsA,robertsB,threshold);
+img1simpleTg10 = blur2edge2MT(img1,gauss10,gauss10,sgA,sgB,threshold);
+img1gaussfirst10T = blur2edge2MT(img1,gauss10,gauss10',sgA,sgB,threshold);
+img1laplaT = conv2(img1,laplacian);
+
+img1gausslapla10T = blur1edge1(img1,gauss10'*gauss10,laplacian);
+
+img1CannyT = 
+
 --------------------------------------------------------------------------------------------------------------
 
 img2 = read_image('','43590 AM.bmp');
@@ -57,6 +67,15 @@ img2gausslapla10T = blur1edge1(img2,gauss10'*gauss10,laplacian);
 
 img2CannyT = 
 
+img2sobelTg10 = blur2edge2MT(img2,gauss10,gauss10,sobelX,sobelY,threshold);
+img2robertTg10 = blur2edge2MT(img2,gauss10,gauss10,robertsA,robertsB,threshold);
+img2simpleTg10 = blur2edge2MT(img2,gauss10,gauss10,sgA,sgB,threshold);
+img2gaussfirst10T = blur2edge2MT(img2,gauss10,gauss10',sgA,sgB,threshold);
+img2laplaT = conv2(img2,laplacian);
+
+img2gausslapla10T = blur1edge1(img2,gauss10'*gauss10,laplacian);
+
+img2CannyT = 
 
 --------------------------------------------------------------------------------------------------------------
 
@@ -82,5 +101,14 @@ img3gausslapla10T = blur1edge1(img3,gauss10'*gauss10,laplacian);
 
 img3CannyT = 
 
+img3sobelTg10 = blur2edge2MT(img3,gauss10,gauss10,sobelX,sobelY,threshold);
+img3robertTg10 = blur2edge2MT(img3,gauss10,gauss10,robertsA,robertsB,threshold);
+img3simpleTg10 = blur2edge2MT(img3,gauss10,gauss10,sgA,sgB,threshold);
+img3gaussfirst10T = blur2edge2MT(img3,gauss10,gauss10',sgA,sgB,threshold);
+img3laplaT = conv2(img3,laplacian);
+
+img3gausslapla10T = blur1edge1(img3,gauss10'*gauss10,laplacian);
+
+img3CannyT = 
 --------------------------------------------------------------------------------------------------------------
 
