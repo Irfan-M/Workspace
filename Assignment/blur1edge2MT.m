@@ -10,7 +10,7 @@ function m = blur1edge2MT(image,blur1,edgeX,edgeY,threshold)
 
 im= conv2(image,blur1,'same');
 
-x = conv2(im,edgeY,'same');
+x = conv2(im,edgeX,'same');
 y = conv2(im,edgeY,'same');
 
 m = sqrt(x.^2 + y.^2);;

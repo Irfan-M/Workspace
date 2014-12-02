@@ -6,7 +6,7 @@ function m = edge2MT(image,edgeY,edgeY,threshold)
 % Also calculates Magnitude. (M)
 % image threshold (T)
 
-x = conv2(image,edgeY,'same');
+x = conv2(image,edgeX,'same');
 y = conv2(image,edgeY,'same');
 
 m = sqrt(x.^2 + y.^2);
