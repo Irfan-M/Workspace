@@ -6,11 +6,11 @@ function m = blur2edge2MT(image,blur1,blur2,edgeX,edgeY,threshold)
 % Also calculates Magnitude. (M)
 % image threshold (T)
 
-im= conv2(image,blur1);
-im= conv2(image,blur2);
+im= conv2(image,blur1,'same');
+im= conv2(image,blur2,'same');
 
-x = conv2(im,edgeX);
-y = conv2(im,edgeY);
+x = conv2(im,edgeX,'same');
+y = conv2(im,edgeY,'same');
 
 m = sqrt(x.^2 + y.^2);;
 m = (m > threshold);

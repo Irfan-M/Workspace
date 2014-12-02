@@ -5,8 +5,8 @@ function m = edge2M(image,edgeX,edgeY)
 % Also calculates Magnitude. (M)
 
 
-x = conv2(image,edgeY);
-y = conv2(image,edgeY);
+x = conv2(image,edgeY,'same');
+y = conv2(image,edgeY,'same');
 
 m = sqrt(x.^2 + y.^2);
 
