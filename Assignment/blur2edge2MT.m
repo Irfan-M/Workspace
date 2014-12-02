@@ -15,7 +15,7 @@ y = conv2(im,edgeY,'same');
 m = sqrt(x.^2 + y.^2);;
 m = (m > threshold);
 
-show_image(mag);
+show_image(m);
 
 end;
 
