@@ -7,7 +7,20 @@ gauss5 = N(0,1,[-3:1.5:3]);
 gauss7 = N(0,1,[-3:1:3]);
 gauss10 = N(0,1,linspace(-3,3,10));
 
-threshold = 60;
+
+sd01 = N(0,0,1,linspace(-3,3,5));
+sd05 = N(0,0.5,linspace(-3,3,5));
+sd1 = N(0,1,linspace(-3,3,5));
+sd2 = N(0,2,linspace(-3,3,5));
+sd2 = N(0,4,linspace(-3,3,5));
+
+
+mean3x3 = repmat(1/9,3,3);
+mean5x5 = repmat(1/25,5,5);
+mean7x7 = repmat(1/49,7,7);
+mean9x9 = repmat(1/81,9,9);
+
+threshold = 100;
 
 --------------------------------------------------------------------------------------------------------------
 
@@ -16,30 +29,37 @@ imgt = read_image('','9343 AM Edges.bmp');
 imgt = im2bw(imgt);
 
 plots = [];
-plots =[plots (RocID(edge2M(img1,sobelX,sobelY),imgt))];
-plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,30),imgt))];
-plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,40),imgt))];
-plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,50),imgt))];
-plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,60),imgt))];
+plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,70),imgt))];
 plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,80),imgt))];
+plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,100),imgt))];
 plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,120),imgt))];
-plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,150),imgt))];
+plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,140),imgt))];
+plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,160),imgt))];
+plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,180),imgt))];
 plots =[plots (RocID(edge2MT(img1,sobelX,sobelY,200),imgt))];
 
 plots2 = [];
-plots2 =[plots2 (RocID(edge2M(img1,sobelX,sobelY),imgt))];
-plots2 =[plots2 (RocID(blur1edge2M(img1,mean3x3,sobelX,sobelY),imgt))];
-plots2 =[plots2 (RocID(blur1edge2M(img1,mean5x5,sobelX,sobelY),imgt))];
+plots2 =[plots2 (RocID(blur1edge2MT(img1,mean3x3,sobelX,sobelY,threshold),imgt))];
+plots2 =[plots2 (RocID(blur1edge2MT(img1,mean5x5,sobelX,sobelY,threshold),imgt))];
+plots2 =[plots2 (RocID(blur1edge2MT(img1,mean7x7,sobelX,sobelY,threshold),imgt))];
+plots2 =[plots2 (RocID(blur1edge2MT(img1,mean9x9,sobelX,sobelY,threshold),imgt))];
 
 plots3 = [];
-plots3 =[plots3 (RocID(edge2M(img1,sobelX,sobelY),imgt))];
-plots3 =[plots3 (RocID(blur1edge2M(img1,gauss3,gauss3',sobelX,sobelY),imgt))];
-plots3 =[plots3 (RocID(blur1edge2M(img1,gauss5,gauss5',sobelX,sobelY),imgt))];
-plots3 =[plots3 (RocID(blur2edge2M(img1,gauss7,gauss7',sobelX,sobelY),imgt))];
-plots3 =[plots3 (RocID(blur2edge2M(img1,gauss10,gauss10',sobelX,sobelY),imgt))];
+plots3 =[plots3 (RocID(blur2edge2MT(img1,gauss3,gauss3',sobelX,sobelY,threshold),imgt))];
+plots3 =[plots3 (RocID(blur2edge2MT(img1,gauss5,gauss5',sobelX,sobelY,threshold),imgt))];
+plots3 =[plots3 (RocID(blur2edge2MT(img1,gauss7,gauss7',sobelX,sobelY,threshold),imgt))];
+plots3 =[plots3 (RocID(blur2edge2MT(img1,gauss10,gauss10',sobelX,sobelY,threshold),imgt))];
 
-plot([0:0.1:1],[0:0.1:1],plots(1,:),plots(2,:),plots2(1,:),plots2(2,:),plots3(1,:),plots3(2,:))
--------------------------------------------------------------------------------------------------------------
+plots3b = [];
+plots3b =[plots3b (RocID(blur2edge2MT(img1,sd01,sd01',sobelX,sobelY,threshold),imgt))];
+plots3b =[plots3b (RocID(blur2edge2MT(img1,sd05,sd05',sobelX,sobelY,threshold),imgt))];
+plots3b =[plots3b (RocID(blur2edge2MT(img1,sd1,sd1',sobelX,sobelY,threshold),imgt))];
+plots3b =[plots3b (RocID(blur2edge2MT(img1,sd2,sd2',sobelX,sobelY,threshold),imgt))];
+plots3b =[plots3b (RocID(blur2edge2MT(img1,sd4,sd4',sobelX,sobelY,threshold),imgt))];
+
+
+plot([0:0.1:1],[0:0.1:1],plots(1,:),plots(2,:),plots2(1,:),plots2(2,:),plots3(1,:),plots3(2,:),plots3b(1,:),plots3b(2,:));
+---------------------------------------------------------------------------------------------------------------------------
 
 
 plots4 = [];
