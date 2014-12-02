@@ -6,13 +6,11 @@ function m = edge2MT(image,edgeY,edgeY,threshold)
 % Also calculates Magnitude. (M)
 % image threshold (T)
 
-imFX = conv2(image,edgeY);
-imFY = conv2(image,edgeY);
+x = conv2(image,edgeY);
+y = conv2(image,edgeY);
 
-m = sqrt(imFX.^2 + imFY.^2);
+m = sqrt(x.^2 + y.^2);
 m = (m > threshold);
-
-m = im2bw(m,greythresh(m));
 
 show_image(m);
 

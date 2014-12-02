@@ -1,17 +1,16 @@
-function m = edge2M(image,edgeY,edgeY)
+function m = edge2M(image,edgeX,edgeY)
 
 % Applies 2 edge filters to the image and returns image in B/W
-% edgeY = e.g. SobelX (edge)
-% edgeY = e.g. SobelY, robertX (edge)
+% edgeX/Y = e.g. SobelX (edge)
 % Also calculates Magnitude. (M)
 
 
-imFX = conv2(image,edgeY);
-imFY = conv2(image,edgeY);
+x = conv2(image,edgeY);
+y = conv2(image,edgeY);
 
-m = sqrt(imFX.^2 + imFY.^2);
+m = sqrt(x.^2 + y.^2);
 
-m = im2bw(m,greythresh(m));
+m = im2bw(m);
 
 show_image(m);
 
