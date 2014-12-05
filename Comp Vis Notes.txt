@@ -1,7 +1,7 @@
 Gaussian filter = more advantageous vs mean filter (linear filter)
 Gaussian filter faster using 1d - Bad (NxN x (GxG)) vs  Good (2G x NxN)
 
-
+Check
 
 With 1st Derative = get Gradient x, then you Gradient Y, then you get magnitude (x,y)
 

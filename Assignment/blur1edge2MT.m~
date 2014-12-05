@@ -9,7 +9,7 @@ function m = blur1edge2MT(image,edgeX,edgeY,imageT,bottomThresh)
 
 
 m = [];
-for i =0:1:100
+for i = bottomThresh-5:1:bottomThresh+5
     p = [];
     for j = 1:2:10
         [i,j]
@@ -20,7 +20,7 @@ for i =0:1:100
              im = sqrt(x.^2 + y.^2);  
              p = [p  RocID((im > i),imageT)];
     end
-    m = [m;p;];
+    m = [m;p];
 end 
 
 end
