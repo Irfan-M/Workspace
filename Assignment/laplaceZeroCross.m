@@ -11,12 +11,17 @@ im = edge(image,'zerocross',20,laplacianOp);
 show_image(im);
 
 p = [];
+best = [];
+
 for i = 1:0.5:100
- p = [p  RocID(edge(image,'zerocross',i,laplacianOp),imageT)];
+					[a,b,c] = RocID(edge(image,'zerocross',i,laplacianOp),imageT);
+					if (c < best) best = [c,i]; end
+					p = [p  [a;b]];
+
 end 
 m = p;
 end
-
+best
 
 end
 

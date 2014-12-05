@@ -6,10 +6,9 @@ imgt = read_image('','9343 AM Edges.bmp');
 imgt = im2bw(imgt);
 -----------------------------------------------
 
-p1 = edge2MT(img1,sobelX,sobelY,imgt)
+p1 = edge2MT(img1,sobelX,sobelY,imgt);
 p2 = blur1edge2MT(img1,sobelX,sobelY,imgt,46);
 p3 = blur2edge2MT(img1,sobelX,sobelY,imgt,46);
-
 
 plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:),p3(1,:),p3(2,:));
 ---------------------------------------------------------------------------------------------------------------------------
@@ -30,13 +29,9 @@ plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:),p3(1,:),p3(2,:));
 
 --------------------------------------------------------------------------------------------------------------
 
-plots7 =[plots7 (RocID(edge2MT(img1,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,10),imgt))];
-
-plots8 =[plots8 (RocID(blur1edge2MT(img1,mean3x3,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
-
-plots9 =[plots9 (RocID(blur2edge2MT(img1,gauss3,gauss3',first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
-
-plots9b =[plots9b (RocID(blur2edge2MT(img1,sd01,sd01',first_order_gaussian_filter_1d_length5,difference_gradient_filterY,300),imgt))];
+p1 = edge2MT(img1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',imgt)
+p2 = blur1edge2MT(img1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',imgt,46);
+p3 = blur2edge2MT(img1,first_order_gaussian_filter_1d_length5',first_order_gaussian_filter_1d_length5',imgt,46);
 
 plot([0:0.1:1],[0:0.1:1],plots7(1,:),plots7(2,:),plots8(1,:),plots8(2,:),plots9(1,:),plots9(2,:),plots9b(1,:),plots9b(2,:));
 --------------------------------------------------------------------------------------------------------------

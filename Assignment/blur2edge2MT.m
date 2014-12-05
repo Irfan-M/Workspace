@@ -8,6 +8,7 @@ function m = blur2edge2MT(image,edgeX,edgeY,imageT,bottomThresh)
 
 
 m = [];
+best = [];
 for i = 0:1:100
     p = [];
     for j = 3:1:10
@@ -16,14 +17,16 @@ for i = 0:1:100
 					blur1 = N(0,k,linspace(-3,3,j));
 					im= conv2(image,blur1,'same');
 					im= conv2(im,blur1','same');
-					 x = conv2(im,edgeX,'same');
-					 y = conv2(im,edgeY,'same');   
-					 im = sqrt(x.^2 + y.^2);  
-					 p = [p  RocID((im > i),imageT)];
+					x = conv2(im,edgeX,'same');
+					y = conv2(im,edgeY,'same');   
+					im = sqrt(x.^2 + y.^2);  
+					[a,b,c] = (RocID((im > i),imageT);
+					if (c < best) best = [c,i]; end
+					p = [p  [a;b]];
 			end
     end
     m = [m;p];
 end 
-
+best
 end
 

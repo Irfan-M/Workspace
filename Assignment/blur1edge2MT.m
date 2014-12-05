@@ -9,19 +9,26 @@ function m = blur1edge2MT(image,edgeX,edgeY,imageT,bottomThresh)
 
 
 m = [];
+best = [];
+
 for i =0:1:100
     p = [];
     for j = 1:2:10
         [i,j]
             blur1 = repmat(1/(j*j),j,j);
             im= conv2(image,blur1,'same');
-             x = conv2(im,edgeX,'same');
-             y = conv2(im,edgeY,'same');   
-             im = sqrt(x.^2 + y.^2);  
-             p = [p  RocID((im > i),imageT)];
+            x = conv2(im,edgeX,'same');
+            y = conv2(im,edgeY,'same');   
+            im = sqrt(x.^2 + y.^2);  
+			[a,b,c] = (RocID((im > i),imageT);
+			if (c < best) best = [c,i]; end
+			p = [p  [a;b]];
     end
     m = [m;p];
 end 
+
+best
+
 
 end
 

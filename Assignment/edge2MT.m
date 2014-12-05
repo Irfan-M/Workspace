@@ -14,10 +14,16 @@ y = conv2(image,edgeY,'same');
 im = sqrt(x.^2 + y.^2);
 
 p = [];
+best = [];
+
 for i = 0:1:100
- i
- p = [p  RocID((im > i),imageT)];
+	 i
+	 [a,b,c] = (RocID((im > i),imageT);
+	 if (c < best) best = [c,i]; end
+	 p = [p  [a;b]];
 end 
+
+best
 m = p;
 
 

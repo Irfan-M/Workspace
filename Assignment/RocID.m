@@ -15,9 +15,9 @@ specificity = 1 - (TN / (TN + FP));
 sensitivity = TP / (TP + FN);
 
 %Checks value of position (Lower better)
-ManhattD = sqrt((1- sensitivity).^2 + specificity.^2)
+manhattD = sqrt((1- sensitivity).^2 + specificity.^2)
 
-m = [specificity;sensitivity];
+m = [specificity;sensitivity;manhattD];
 
 end
 

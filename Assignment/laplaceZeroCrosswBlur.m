@@ -8,6 +8,7 @@ function m = laplaceZeroCrosswBlur(image,blur1,laplacianOp,imageT)
 % 1 = Magnitude, 1 = Zero Crossing
 
 m = [];
+best = [];
 for i =0:1:100
     p = [];
     for j = 1:2:15
@@ -18,13 +19,15 @@ for i =0:1:100
              x = conv2(im,edgeX,'same');
              y = conv2(im,edgeY,'same');   
              im = sqrt(x.^2 + y.^2);  
-             p = [p  RocID(edge(im,'zerocross',i,laplacianOp),imageT)];
+             [a,b,c] = RocID(edge(image,'zerocross',i,laplacianOp),imageT);
+					if (c < best) best = [c,i]; end
+					p = [p  [a;b]];
 		end
     end
     m = [m;p];
 end 
 
-
+best
 end
 
 
