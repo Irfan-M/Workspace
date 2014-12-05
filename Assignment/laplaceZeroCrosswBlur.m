@@ -11,7 +11,7 @@ m = [];
 for i =0:1:100
     p = [];
     for j = 1:2:15
-        for k = 1:0.5:3
+        for k = 0.5:0.5:3
 				 [i,j,k]
             blur1 = N(0,k,linspace(-3,3,j));
             im= conv2(image,blur1,'same');
@@ -21,7 +21,7 @@ for i =0:1:100
              p = [p  RocID(edge(im,'zerocross',i,laplacianOp),imageT)];
 		end
     end
-    m = [m;p;];
+    m = [m;p];
 end 
 
 

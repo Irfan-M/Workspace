@@ -20,7 +20,7 @@ for i =0:1:100
              im = sqrt(x.^2 + y.^2);  
              p = [p  RocID((im > i),imageT)];
     end
-    m = [m;p;];
+    m = [m;p];
 end 
 
 end

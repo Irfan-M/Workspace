@@ -4,7 +4,7 @@ load filters;
 img1 = read_image3D('','9343 AM.bmp');
 imgt = read_image('','9343 AM Edges.bmp');
 imgt = im2bw(imgt);
-
+-----------------------------------------------
 
 p1 = edge2MT(img1,sobelX,sobelY,imgt)
 p2 = blur1edge2MT(img1,sobelX,sobelY,imgt,46);
@@ -38,7 +38,6 @@ plots9 =[plots9 (RocID(blur2edge2MT(img1,gauss3,gauss3',first_order_gaussian_fil
 
 plots9b =[plots9b (RocID(blur2edge2MT(img1,sd01,sd01',first_order_gaussian_filter_1d_length5,difference_gradient_filterY,300),imgt))];
 
-
 plot([0:0.1:1],[0:0.1:1],plots7(1,:),plots7(2,:),plots8(1,:),plots8(2,:),plots9(1,:),plots9(2,:),plots9b(1,:),plots9b(2,:));
 --------------------------------------------------------------------------------------------------------------
 
@@ -48,26 +47,7 @@ RocID(laplaceZeroCrosswBlur(image,laplacian,imgt);
 plot([0:0.1:1],[0:0.1:1],plotsX(1,:),plotsX(2,:),plotsY(1,:),plotsY(2,:));
 
 --------------------------------------------------------------------------------------------------------------
-
-plotsG = [];
-[plotsG (RocID(edge(img1,'canny',60),imgt))];
-[plotsG (RocID(edge(img1,'canny',100),imgt))];
-[plotsG (RocID(edge(img1,'canny',130),imgt))];
-[plotsG (RocID(edge(img1,'canny',150),imgt))];
-[plotsG (RocID(edge(img1,'canny',170),imgt))];
-
-plotsH = [];
-[plotsH (RocID(edge(img1,'canny'),imgt))];
-[plotsH (RocID(edge(img1,'canny',threshold,1),imgt))];
-[plotsH (RocID(edge(img1,'canny',threshold,2),imgt))];
-[plotsH (RocID(edge(img1,'canny',threshold,3),imgt))];
-
-plotsI = [];
-[plotsI (RocID(edge(img1,'canny'),imgt))];
-[plotsI (RocID(edge(img1,'canny',threshold,1),imgt))];
-[plotsI (RocID(edge(img1,'canny',threshold,2),imgt))];
-[plotsI (RocID(edge(img1,'canny',threshold,3),imgt))];
-[plotsI (RocID(edge(img1,'canny',threshold,4),imgt))];
+RocID(canny(img1,imgt);
 
 plot([0:0.1:1],[0:0.1:1],plotsG(1,:),plotsG(2,:),plotsH(1,:),plotsH(2,:),plotsI(1,:),plotsI(2,:));
 ---------------------------------------------------------------------------------------------------------
