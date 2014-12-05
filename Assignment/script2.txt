@@ -93,126 +93,108 @@ plots6b =[plots6b (RocID(blur2edge2MT(img1,sd4,sd4',robertsA,robertsB,threshold)
 plot([0:0.1:1],[0:0.1:1],plots4(1,:),plots4(2,:),plots5(1,:),plots5(2,:),plots6(1,:),plots6(2,:),plots6b(1,:),plots6b(2,:));
 
 --------------------------------------------------------------------------------------------------------------
-
 plots7 = [];
-plots7 =[plots7 (RocID(edge2MT(img1,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,70),imgt))];
-plots7 =[plots7 (RocID(edge2MT(img1,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,80),imgt))];
-plots7 =[plots7 (RocID(edge2MT(img1,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,100),imgt))];
-plots7 =[plots7 (RocID(edge2MT(img1,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,120),imgt))];
-plots7 =[plots7 (RocID(edge2MT(img1,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,140),imgt))];
-plots7 =[plots7 (RocID(edge2MT(img1,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,160),imgt))];
-plots7 =[plots7 (RocID(edge2MT(img1,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,180),imgt))];
-plots7 =[plots7 (RocID(edge2MT(img1,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,200),imgt))];
+plots7 =[plots7 (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,70),imgt))];
+plots7 =[plots7 (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,80),imgt))];
+plots7 =[plots7 (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,100),imgt))];
+plots7 =[plots7 (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,120),imgt))];
+plots7 =[plots7 (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,140),imgt))];
+plots7 =[plots7 (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,160),imgt))];
+plots7 =[plots7 (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,180),imgt))];
+plots7 =[plots7 (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,200),imgt))];
 
 plots8 = [];
-plots8 =[plots8 (RocID(blur1edge2MT(img1,mean3x3,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
-plots8 =[plots8 (RocID(blur1edge2MT(img1,mean5x5,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
-plots8 =[plots8 (RocID(blur1edge2MT(img1,mean7x7,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
-plots8 =[plots8 (RocID(blur1edge2MT(img1,mean9x9,first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
+plots8 =[plots8 (RocID(blur1edge2MT(img1,mean3x3,difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
+plots8 =[plots8 (RocID(blur1edge2MT(img1,mean5x5,difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
+plots8 =[plots8 (RocID(blur1edge2MT(img1,mean7x7,difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
+plots8 =[plots8 (RocID(blur1edge2MT(img1,mean9x9,difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
 
 plots9 = [];
-plots9 =[plots9 (RocID(blur2edge2MT(img1,gauss3,gauss3',first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
-plots9 =[plots9 (RocID(blur2edge2MT(img1,gauss5,gauss5',first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
-plots9 =[plots9 (RocID(blur2edge2MT(img1,gauss7,gauss7',first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
-plots9 =[plots9 (RocID(blur2edge2MT(img1,gauss10,gauss10',first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
+plots9 =[plots9 (RocID(blur2edge2MT(img1,gauss3,gauss3',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
+plots9 =[plots9 (RocID(blur2edge2MT(img1,gauss5,gauss5',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
+plots9 =[plots9 (RocID(blur2edge2MT(img1,gauss7,gauss7',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
+plots9 =[plots9 (RocID(blur2edge2MT(img1,gauss10,gauss10',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
 
 plots9b = [];
-plots9b =[plots9b (RocID(blur2edge2MT(img1,sd01,sd01',first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
-plots9b =[plots9b (RocID(blur2edge2MT(img1,sd05,sd05',first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
-plots9b =[plots9b (RocID(blur2edge2MT(img1,sd1,sd1',first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
-plots9b =[plots9b (RocID(blur2edge2MT(img1,sd2,sd2',first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
-plots9b =[plots9b (RocID(blur2edge2MT(img1,sd4,sd4',first_order_gaussian_filter_1d_length5,difference_gradient_filterY,threshold),imgt))];
+plots9b =[plots9b (RocID(blur2edge2MT(img1,sd01,sd01',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
+plots9b =[plots9b (RocID(blur2edge2MT(img1,sd05,sd05',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
+plots9b =[plots9b (RocID(blur2edge2MT(img1,sd1,sd1',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
+plots9b =[plots9b (RocID(blur2edge2MT(img1,sd2,sd2',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
+plots9b =[plots9b (RocID(blur2edge2MT(img1,sd4,sd4',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
 
 
 plot([0:0.1:1],[0:0.1:1],plots7(1,:),plots7(2,:),plots8(1,:),plots8(2,:),plots9(1,:),plots9(2,:),plots9b(1,:),plots9b(2,:));
 --------------------------------------------------------------------------------------------------------------
 
+plotsD = [];
+[plotsD (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),imgt))];
+[plotsD (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,30),imgt))];
+[plotsD (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,40),imgt))];
+[plotsD (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,50),imgt))];
+[plotsD (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,60),imgt))];
+
+plotsE = [];
+[plotsE (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),imgt))];
+[plotsE (RocID(customA(image,mean3x3,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),imgt))];
+[plotsE (RocID(customA(image,mean5x5,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),imgt))];
+[plotsE (RocID(customA(image,mean3x3,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),imgt))];
+
+plotsF = []
+[plotsF (RocID(customA(image,-1,-1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),imgt))];
+[plotsF (RocID(customA(image,gauss3,gauss3',first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),imgt))];
+[plotsF (RocID(customA(image,gauss5,gauss5',first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),imgt))];
+[plotsF (RocID(customA(image,gauss7,gauss7',first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),imgt))];
+[plotsF (RocID(customA(image,gauss10,gauss10',first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',0,-1),imgt))];
+
+plot([0:0.1:1],[0:0.1:1],plotsD(1,:),plotsD(2,:),plotsE(1,:),plotsE(2,:),plotsF(1,:),plotsF(2,:));
+---------------------------------------------------------------------------------------------------------
+
+
 plotsA = [];
-plotsA =[plotsA (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,70),imgt))];
-plotsA =[plotsA (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,80),imgt))];
-plotsA =[plotsA (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,100),imgt))];
-plotsA =[plotsA (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,120),imgt))];
-plotsA =[plotsA (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,140),imgt))];
-plotsA =[plotsA (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,160),imgt))];
-plotsA =[plotsA (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,180),imgt))];
-plotsA =[plotsA (RocID(edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,200),imgt))];
+[plotsA (RocID(customA(image,-1,-1,laplacian,-1,0,-1),imgt))];
+[plotsA (RocID(customA(image,-1,-1,laplacian,-1,0,30),imgt))];
+[plotsA (RocID(customA(image,-1,-1,laplacian,-1,0,40),imgt))];
+[plotsA (RocID(customA(image,-1,-1,laplacian,-1,0,50),imgt))];
+[plotsA (RocID(customA(image,-1,-1,laplacian,-1,0,60),imgt))];
+
 
 plotsB = [];
-plotsB =[plotsB (RocID(blur1edge2MT(img1,mean3x3,difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
-plotsB =[plotsB (RocID(blur1edge2MT(img1,mean5x5,difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
-plotsB =[plotsB (RocID(blur1edge2MT(img1,mean7x7,difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
-plotsB =[plotsB (RocID(blur1edge2MT(img1,mean9x9,difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
+[plotsB (RocID(customA(image,-1,-1,laplacian,-1,0,-1),imgt))];
+[plotsB (RocID(customA(image,mean3x3,-1,laplacian,-1,0,-1),imgt))];
+[plotsB (RocID(customA(image,mean5x5,-1,laplacian,-1,0,-1),imgt))];
+[plotsB (RocID(customA(image,mean3x3,-1,laplacian,-1,0,-1),imgt))];
 
 plotsC = [];
-plotsC =[plotsC (RocID(blur2edge2MT(img1,gauss3,gauss3',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
-plotsC =[plotsC (RocID(blur2edge2MT(img1,gauss5,gauss5',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
-plotsC =[plotsC (RocID(blur2edge2MT(img1,gauss7,gauss7',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
-plotsC =[plotsC (RocID(blur2edge2MT(img1,gauss10,gauss10',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
+[plotsC (RocID(customA(image,-1,-1,laplacian,-1,0,-1),imgt))];
+[plotsC (RocID(customA(image,gauss3,gauss3',laplacian,-1,0,-1),imgt))];
+[plotsC (RocID(customA(image,gauss5,gauss5',laplacian,-1,0,-1),imgt))];
+[plotsC (RocID(customA(image,gauss7,gauss7',laplacian,-1,0,-1),imgt))];
+[plotsC (RocID(customA(image,gauss10,gauss10',laplacian,-1,0,-1),imgt))];
 
-plotsD = [];
-plotsD =[plotsD (RocID(blur2edge2MT(img1,sd01,sd01',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
-plotsD =[plotsD (RocID(blur2edge2MT(img1,sd05,sd05',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
-plotsD =[plotsD (RocID(blur2edge2MT(img1,sd1,sd1',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
-plotsD =[plotsD (RocID(blur2edge2MT(img1,sd2,sd2',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
-plotsD =[plotsD (RocID(blur2edge2MT(img1,sd4,sd4',difference_gradient_filterX,difference_gradient_filterY,threshold),imgt))];
-
-
-plot([0:0.1:1],[0:0.1:1],plotsA(1,:),plotsA(2,:),plots8(1,:),plots8(2,:),plots9(1,:),plots9(2,:),plots9b(1,:),plots9b(2,:));
---------------------------------------------------------------------------------------------------------------
-
-plotsX = [];
-[plotsX (RocID(laplaceZeroCross(image,0,0,laplacian,60),imgt))];
-[plotsX (RocID(laplaceZeroCross(image,0,0,laplacian,80),imgt))];
-[plotsX (RocID(laplaceZeroCross(image,0,0,laplacian,100),imgt))];
-[plotsX (RocID(laplaceZeroCross(image,0,0,laplacian,140),imgt))];
-[plotsX (RocID(laplaceZeroCross(image,0,0,laplacian,150),imgt))];
-[plotsX (RocID(laplaceZeroCross(image,0,0,laplacian,180),imgt))];
-[plotsX (RocID(laplaceZeroCross(image,0,0,laplacian,200),imgt))];
-[plotsX (RocID(laplaceZeroCross(image,0,0,laplacian,220),imgt))];
-
-
-plotsY = [];
-[plotsY (RocID(laplaceZeroCross(image,mean3x3,0,laplacian,threshold),imgt))];
-[plotsY (RocID(laplaceZeroCross(image,mean5x5,0,laplacian,threshold),imgt))];
-[plotsY (RocID(laplaceZeroCross(image,mean7x7,0,laplacian,threshold),imgt))];
-[plotsY (RocID(laplaceZeroCross(image,mean9x9,0,laplacian,threshold),imgt))];
-
-plotsZ = [];
-[plotsZ (RocID(laplaceZeroCross(image,gauss3,gauss3',laplacian,threshold),imgt))];
-[plotsZ (RocID(laplaceZeroCross(image,gauss5,gauss5',laplacian,threshold),imgt))];
-[plotsZ (RocID(laplaceZeroCross(image,gauss7,gauss7',laplacian,threshold),imgt))];
-[plotsZ (RocID(laplaceZeroCross(image,gauss10,gauss10',laplacian,threshold),imgt))];
-
-plotsZa = [];
-[plotsZa (RocID(laplaceZeroCross(image,sd01,sd01',laplacian,threshold),imgt))];
-[plotsZa (RocID(laplaceZeroCross(image,sd05,sd05',laplacian,threshold),imgt))];
-[plotsZa (RocID(laplaceZeroCross(image,sd1,sd1',laplacian,threshold),imgt))];
-[plotsZa (RocID(laplaceZeroCross(image,sd2,sd2',laplacian,threshold),imgt))];
-[plotsZa (RocID(laplaceZeroCross(image,sd4,sd4',laplacian,threshold),imgt))];
-
-plot([0:0.1:1],[0:0.1:1],plotsX(1,:),plotsX(2,:),plotsY(1,:),plotsY(2,:),plotsZ(1,:),plotsZ(2,:),plotsZa(1,:),plotsZa(2,:));
+plot([0:0.1:1],[0:0.1:1],plotsA(1,:),plotsA(2,:),plotsB(1,:),plotsB(2,:),plotsC(1,:),plotsC(2,:));
 
 --------------------------------------------------------------------------------------------------------------
+
 
 plotsG = [];
+[plotsG (RocID(edge(img1,'canny'),imgt))];
+[plotsG (RocID(edge(img1,'canny',30),imgt))];
+[plotsG (RocID(edge(img1,'canny',40),imgt))];
+[plotsG (RocID(edge(img1,'canny',50),imgt))];
 [plotsG (RocID(edge(img1,'canny',60),imgt))];
-[plotsG (RocID(edge(img1,'canny',100),imgt))];
-[plotsG (RocID(edge(img1,'canny',130),imgt))];
-[plotsG (RocID(edge(img1,'canny',150),imgt))];
-[plotsG (RocID(edge(img1,'canny',170),imgt))];
 
 plotsH = [];
 [plotsH (RocID(edge(img1,'canny'),imgt))];
-[plotsH (RocID(edge(img1,'canny',threshold,1),imgt))];
-[plotsH (RocID(edge(img1,'canny',threshold,2),imgt))];
-[plotsH (RocID(edge(img1,'canny',threshold,3),imgt))];
+[plotsH (RocID(edge(img1,'canny',,1),imgt))];
+[plotsH (RocID(edge(img1,'canny',,2),imgt))];
+[plotsH (RocID(edge(img1,'canny',,3),imgt))];
 
 plotsI = [];
 [plotsI (RocID(edge(img1,'canny'),imgt))];
-[plotsI (RocID(edge(img1,'canny',threshold,1),imgt))];
-[plotsI (RocID(edge(img1,'canny',threshold,2),imgt))];
-[plotsI (RocID(edge(img1,'canny',threshold,3),imgt))];
-[plotsI (RocID(edge(img1,'canny',threshold,4),imgt))];
+[plotsI (RocID(edge(img1,'canny',30,1),imgt))];
+[plotsI (RocID(edge(img1,'canny',40,2),imgt))];
+[plotsI (RocID(edge(img1,'canny',50,3),imgt))];
+[plotsI (RocID(edge(img1,'canny',60,4),imgt))];
 
-plot([0:0.1:1],[0:0.1:1],plotsG(1,:),plotsG(2,:),plotsH(1,:),plotsH(2,:),plotsI(1,:),plotsI(2,:));
+plot([0:0.1:1],[0:0.1:1],plotsH(1,:),plotsH(2,:),plotsI(1,:),plotsI(2,:),plotsJ(1,:),plotsJ(2,:));
 ---------------------------------------------------------------------------------------------------------
