@@ -7,42 +7,127 @@ imgt = im2bw(imgt);
 -----------------------------------------------
 
 p1 = edge2MT(img1,sobelX,sobelY,imgt);
+
+best =
+
+    0.1951D
+   47.0000T
+
+
 p2 = blur1edge2MT(img1,sobelX,sobelY,imgt,46);
+
+best =
+
+    0.1951D
+   47.0000T
+    1.0000S
+
 p3 = blur2edge2MT(img1,sobelX,sobelY,imgt,46);
+
+best =
+
+    0.1951D
+   30.0000T
+    3.0000S
+    0.5000Si
+
+
 
 plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:),p3(1,:),p3(2,:));
 ---------------------------------------------------------------------------------------------------------------------------
 
-p1 = edge2MT(img1,robertsA,robertsB,imgt)
+p1 = edge2MT(img1,robertsA,robertsB,imgt);
+
+best =
+
+    0.2092D
+    8.0000T
+
 p2 = blur1edge2MT(img1,robertsA,robertsB,imgt,46);
+
+best =
+
+    0.2080D
+    8.0000T
+    3.0000S
+
 p3 = blur2edge2MT(img1,robertsA,robertsB,imgt,46);
 
+
 plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:),p3(1,:),p3(2,:));
 
 --------------------------------------------------------------------------------------------------------------
 
-p1 = edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,imgt)
+p1 = edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,imgt);
+
+best =
+
+    0.2097D
+   11.0000T
+
 p2 = blur1edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,imgt,46);
+
+best =
+
+    0.2072D
+   11.0000T
+    3.0000S
+
+
 p3 = blur2edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,imgt,46);
 
+
+
 plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:),p3(1,:),p3(2,:));
 
 --------------------------------------------------------------------------------------------------------------
 
-p1 = edge2MT(img1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',imgt)
+p1 = edge2MT(img1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',imgt);
+
+best =
+
+    0.2021D
+    6.0000T
+
 p2 = blur1edge2MT(img1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',imgt,46);
+
+
+best =
+
+    0.2021D
+    6.0000T
+    1.0000S
+
 p3 = blur2edge2MT(img1,first_order_gaussian_filter_1d_length5',first_order_gaussian_filter_1d_length5',imgt,46);
+
+
+
 
 plot([0:0.1:1],[0:0.1:1],plots7(1,:),plots7(2,:),plots8(1,:),plots8(2,:),plots9(1,:),plots9(2,:),plots9b(1,:),plots9b(2,:));
 --------------------------------------------------------------------------------------------------------------
 
-RocID(laplaceZeroCross(image,laplacian,imgt);
-RocID(laplaceZeroCrosswBlur(image,laplacian,imgt);
+laplaceZeroCross(img1,laplacian,imgt);
+
+
+best =
+
+    0.6652D
+    7.0000T
+
+
+laplaceZeroCrosswBlur(img1,laplacian,imgt);
+
+best =
+
+    0.7149
+    0.1000
+    0.5000
+
 
 plot([0:0.1:1],[0:0.1:1],plotsX(1,:),plotsX(2,:),plotsY(1,:),plotsY(2,:));
 
 --------------------------------------------------------------------------------------------------------------
-RocID(canny(img1,imgt);
+canny(img1,imgt);
 
 plot([0:0.1:1],[0:0.1:1],plotsG(1,:),plotsG(2,:),plotsH(1,:),plotsH(2,:),plotsI(1,:),plotsI(2,:));
 ---------------------------------------------------------------------------------------------------------

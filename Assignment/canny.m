@@ -1,18 +1,16 @@
 function m = canny(image,imageT)
 
 m = [];
-best = [];
-for i =0:1:100
+best = [2;0;0];
+for i =0:0.1:0.99
     p = [];
-        for k = 0.5:0.5:3
-            im= conv2(image,blur1,'same');
-             x = conv2(im,edgeX,'same');
-             y = conv2(im,edgeY,'same');   
-             im = sqrt(x.^2 + y.^2);  
-			[a,b,c] = RocID(edge(im,'canny',i,k),imageT);
-					if (c < best) best = [c,i]; end
-					p = [p  [a;b]];
-		end
+        for k = 0.5:0.1:4
+                    [i;k]
+                    val = RocID(edge(image,'canny',i,k),imageT);
+					 manhatt = val(3,:)
+                     if (manhatt < best(1,:)) ;best = [manhatt;i;k]; end
+                     p = [p  [val(1,:);val(2,:)]];
+        end
     m = [m;p];
 end 
 best

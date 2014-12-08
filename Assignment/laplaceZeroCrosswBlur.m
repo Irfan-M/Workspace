@@ -1,4 +1,4 @@
-function m = laplaceZeroCrosswBlur(image,blur1,laplacianOp,imageT)
+function m = laplaceZeroCrosswBlur(image,laplacianOp,imageT)
 
 % Applies 2 smooth filter, 2 edge filters, 1 threshold,  to the image and returns image in B/W
 % blur1/2 = smoothing / noise filter e.g. mean3x3/ Gaussian3x3..etc (blur)
@@ -7,27 +7,29 @@ function m = laplaceZeroCrosswBlur(image,blur1,laplacianOp,imageT)
 % If you want to calculate using magnitude, function assumes you are using X and Y filters automatically.
 % 1 = Magnitude, 1 = Zero Crossing
 
+
 m = [];
-best = [];
-for i =0:1:100
-    p = [];
-    for j = 1:2:15
-        for k = 0.5:0.5:3
-				 [i,j,k]
-            blur1 = N(0,k,linspace(-3,3,j));
-            im= conv2(image,blur1,'same');
-             x = conv2(im,edgeX,'same');
-             y = conv2(im,edgeY,'same');   
-             im = sqrt(x.^2 + y.^2);  
-             [a,b,c] = RocID(edge(image,'zerocross',i,laplacianOp),imageT);
-					if (c < best) best = [c,i]; end
-					p = [p  [a;b]];
-		end
+best = [2;0;0;0];
+
+for i = 0:1:100%change
+     p = [];
+    for j = 3:2:5 %change
+            for k = 0.5:0.5:1 %change
+                [i,j,k]
+                blur1 = N(0,k,linspace(-3,3,j));
+                im= conv2(image,blur1,'same');
+                im = conv2(im,blur1','same');
+                val = RocID(edge(im,'zerocross',i,laplacianOp),imageT);
+                manhatt = val(3,:)
+                if (manhatt < best(1,:)) ;best = [manhatt;i;j;k]; end
+                p = [p  [val(1,:);val(2,:)]];
+            end
     end
     m = [m;p];
 end 
 
 best
+m = p;
 end
 
 
