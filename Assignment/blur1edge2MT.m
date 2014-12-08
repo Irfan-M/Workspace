@@ -12,7 +12,6 @@ m = [];
 best = [2;0;0];
 
 for i =0:1:100
-    p = [];
     for j = 1:2:10
         [i,j];
             blur1 = repmat(1/(j*j),j,j);
@@ -20,16 +19,14 @@ for i =0:1:100
             x = conv2(im,edgeX,'same');
             y = conv2(im,edgeY,'same');   
             im = sqrt(x.^2 + y.^2);  
-			val = (RocID((im > i),imageT));
+val = (RocID((im > i),imageT));
             manhatt = val(3,:);
             if (manhatt < best(1,:)) ;best = [manhatt;i;j]; end
-            p = [p  [val(1,:);val(2,:)]];
+            m = [m  [val(1,:);val(2,:)]];
     end
-    m = [m;p];
 end 
 
 best
 
 
 end
-

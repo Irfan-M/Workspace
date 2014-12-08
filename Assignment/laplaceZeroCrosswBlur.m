@@ -11,10 +11,9 @@ function m = laplaceZeroCrosswBlur(image,laplacianOp,imageT)
 m = [];
 best = [2;0;0;0];
 
-for i = 0:1:100%change
-     p = [];
-    for j = 3:2:5 %change
-            for k = 0.5:0.5:1 %change
+for i = 0:3:100
+    for j = 3:2:9
+            for k = 0.5:0.5:2
                 [i,j,k]
                 blur1 = N(0,k,linspace(-3,3,j));
                 im= conv2(image,blur1,'same');
@@ -22,10 +21,9 @@ for i = 0:1:100%change
                 val = RocID(edge(im,'zerocross',i,laplacianOp),imageT);
                 manhatt = val(3,:)
                 if (manhatt < best(1,:)) ;best = [manhatt;i;j;k]; end
-                p = [p  [val(1,:);val(2,:)]];
+                m = [m  [val(1,:);val(2,:)]];
             end
     end
-    m = [m;p];
 end 
 
 best
