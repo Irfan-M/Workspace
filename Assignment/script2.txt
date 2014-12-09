@@ -143,23 +143,29 @@ plot([0:0.1:1],[0:0.1:1]);
 plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:));
 ---------------------------------------------------------------------------------------------------------
 
-Method: For every image we have multiple filters, multiple noise filters.
-With each image calculated, we have a value range to threshold the convulved image by.
-For some noise filters, we have factors such as sigma and mean value. We also can to take into consideration the filter size:
+Method: For every image we have, there are many factors that we can change.
+We are interested in the best edge filter available, so our method of determining this will be as follows:
 
-A technique we can use, that is not too accurate but can help produce a viable result would be to the following;
-For each image:
-Apply each edge filter:
-    1) For each edge filter,convulve it with an image (both X and Y) ,calculate the magnitude/zero-crossing
-       and then threshold the image by a range of values.
-    2) Calculate the ROC value for each image produced (due to the range of threshold values, we get multiple images).
-    3) The threshold value that produces the best ROC value (indicated by the smallest Manhatten distance from (0,1))
-    can be used as a close approximation of where the best threshold may lie.
-    4) Apply then the (mean) noise filter, use a range of sizes for the filter, and use the earlier best threshold as a base.
-    5) Tweak threshold value (to nearest integer / 1 decimal place) for the best ROC value.
-    6) Apply then the (gauss) noise filter, use a range of sizes for the filter, and use the earlier best threshold as a base.
-    7) Tweak threshold value (to nearest integer / 1 decimal place) for the best ROC value.
-    8) 
+	A)For each edge filter
+		1) Convolve the edge filter with the image (both in X direction and Y).
+		2) Calculate the magnitude/zero-crossing (of image from step 1).
+		
+		3) Use a range of values for thresholding  the image (from step 2).	
+			a) Calculate the ROC value for each image produced (from step 3). *[due to the range of threshold values (0-100), we get multiple images]
+			b) The threshold value that produces the best ROC value (indicated by the smallest Manhatten distance from (0,1))
+				can be used as a close approximation of where the best threshold value may lie (to the nearest integer).
+				
+		4) Repeat step 3 with the mean filter (if possible) and also use multiple mean filter sizes.
+		5) Repeat step 3 again with the gaussian filter (if possible) and also use multiple gaussian filter sizes and different sigma values (with median value 0).
+		6) We will then have 3 Best ROC values produced for each edge filter: 
+					1 from applying the threshold alone. 
+					1 from applying mean filter w/ threshold. 
+					1 from applying gaussian filter w/ threshold.
+					
+	B) Compare all ROC values to determine best ROC value.
+	C) Conclude on best edge filter to use for the image.
+	
+	
     
 
 
