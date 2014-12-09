@@ -143,6 +143,8 @@ plot([0:0.1:1],[0:0.1:1]);
 plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:));
 ---------------------------------------------------------------------------------------------------------
 
+
+
 Method: For every image we have, there are many factors that we can change.
 We are interested in the best edge filter available, so our method of determining this will be as follows:
 
