@@ -1,4 +1,4 @@
-function m = blur2edge2MT(image,edgeX,edgeY,imageT,bottomThresh)
+function m = blur2edge2MT(image,edgeX,edgeY,imageT,step)
 
 % Applies 2 smooth filter, 2 edge filters, 1 threshold,  to the image and returns image in B/W
 % blur1/2 = smoothing / noise filter e.g. GaussianY (blur)
@@ -9,7 +9,7 @@ function m = blur2edge2MT(image,edgeX,edgeY,imageT,bottomThresh)
 
 m = [];
 best = [2;0;0;0];
-for i = 0:1:100
+for i = 0:step:100
     for j = 3:1:10
 			for k = 0.5:0.5:3
 				 [i,j,k];

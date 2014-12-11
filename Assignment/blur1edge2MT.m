@@ -1,4 +1,4 @@
-function m = blur1edge2MT(image,edgeX,edgeY,imageT,bottomThresh)
+function m = blur1edge2MT(image,edgeX,edgeY,imageT,step)
 
 % Applies 1 smooth filter, 2 edge filters, 1 threshold, to the image and returns image in B/W.
 % blur1 = smoothing / noise filter e.g. Laplacian (blur)
@@ -11,7 +11,7 @@ function m = blur1edge2MT(image,edgeX,edgeY,imageT,bottomThresh)
 m = [];
 best = [2;0;0];
 
-for i =0:1:100
+for i =0:step:100
     for j = 1:2:10
         [i,j];
             blur1 = repmat(1/(j*j),j,j);

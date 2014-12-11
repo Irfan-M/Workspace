@@ -7,12 +7,8 @@ function m = laplaceZeroCross(image,laplacianOp,imageT)
 % If you want to calculate using magnitude, function assumes you are using X and Y filters automatically.
 % 1 = Magnitude, 1 = Zero Crossing
 
-im = edge(image,'zerocross',20,laplacianOp);
-show_image(im);
-
 p = [];
 best = [2;0];
-
 for i = 1:0.5:100
 				 val = RocID(edge(image,'zerocross',i,laplacianOp),imageT);
                      manhatt = val(3,:)

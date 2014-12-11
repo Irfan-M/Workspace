@@ -1,0 +1,150 @@
+load sobel;
+load roberts;
+load filters;
+img1 = read_image3D('','9343 AM.bmp');
+imgt = read_image('','9343 AM Edges.bmp');
+imgt = im2bw(imgt);
+-----------------------------------------------
+
+p1 = edge2MT(img1,sobelX,sobelY,imgt);
+
+best =
+
+    0.1951D
+   47.0000T
+
+
+p2 = blur1edge2MT(img1,sobelX,sobelY,imgt,1);
+
+best =
+
+    0.1951D,47.0000T,1.0000Sz
+
+p3 = blur2edge2MT(img1,sobelX,sobelY,imgt,5);
+
+best =
+
+    0.1951D,30.0000T,3.0000Sz,0.5000Si
+
+
+
+plot([0:0.1:1],[0:0.1:1]);
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:));
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:));
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:),p3(1,:),p3(2,:));
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:),p3(1,:),p3(2,:));hold on;  scatter(p1(1,:),p1(2,:)); xlabel 1-specificity;ylabel sensitivty
+---------------------------------------------------------------------------------------------------------------------------
+
+p1 = edge2MT(img1,robertsA,robertsB,imgt);
+
+best =
+
+    0.2092D,8.0000T
+
+p2 = blur1edge2MT(img1,robertsA,robertsB,imgt,1);
+
+best =
+
+    0.2080D
+    8.0000T
+    3.0000Sz
+
+p3 = blur2edge2MT(img1,robertsA,robertsB,imgt,5);
+
+best =
+
+    0.2073D,15.0000T,9.0000Sz,0.5000Si
+
+
+plot([0:0.1:1],[0:0.1:1]);
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:));
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:));
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:),p3(1,:),p3(2,:));
+--------------------------------------------------------------------------------------------------------------
+
+p1 = edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,imgt);
+
+best =
+
+    0.2097D
+   11.0000T
+
+p2 = blur1edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,imgt,1);
+
+best =
+
+    0.2072D,11.0000T
+    3.0000S
+
+
+p3 = blur2edge2MT(img1,difference_gradient_filterX,difference_gradient_filterY,imgt,5);
+
+
+
+plot([0:0.1:1],[0:0.1:1]);
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:));
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:));
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:),p3(1,:),p3(2,:));
+--------------------------------------------------------------------------------------------------------------
+
+p1 = edge2MT(img1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',imgt);
+
+best =
+
+    0.2021D
+    6.0000T
+
+p2 = blur1edge2MT(img1,first_order_gaussian_filter_1d_length5,first_order_gaussian_filter_1d_length5',imgt,1);
+
+
+best =
+
+    0.2021D
+    6.0000T
+    1.0000S
+
+p3 = blur2edge2MT(img1,first_order_gaussian_filter_1d_length5',first_order_gaussian_filter_1d_length5',imgt,5);
+
+
+
+
+plot([0:0.1:1],[0:0.1:1]);
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:));
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:));
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:),p3(1,:),p3(2,:));
+--------------------------------------------------------------------------------------------------------------
+
+p1 = laplaceZeroCross(img1,laplacian,imgt);
+
+
+best =
+
+    0.6652D
+    7.0000T
+
+
+p2 = laplaceZeroCrosswBlur(img1,laplacian,imgt,5);
+
+best =
+
+    0.7149
+    0.1000
+    0.5000
+
+plot([0:0.1:1],[0:0.1:1]);
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:));
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:),p2(1,:),p2(2,:));
+--------------------------------------------------------------------------------------------------------------
+canny(img1,imgt);
+
+plot([0:0.1:1],[0:0.1:1]);
+plot([0:0.1:1],[0:0.1:1],p1(1,:),p1(2,:));
+---------------------------------------------------------------------------------------------------------
+    
+
+
+
+
+
+
+
